@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.Math;
 
-import com.arcrobotics.ftclib.geometry.Vector2d;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;

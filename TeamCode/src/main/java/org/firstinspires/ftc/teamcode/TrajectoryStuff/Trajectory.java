@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.TrajectoryStuff;
 
-import com.acmerobotics.dashboard.canvas.GPose;
-
 import org.firstinspires.ftc.teamcode.Utils.Pose;
 import org.firstinspires.ftc.teamcode.Utils.Vector;
 
@@ -48,20 +46,6 @@ public class Trajectory {
         t = t * (double) numberOfSegments;
         return segments.get((int) t).getPose(t - (double) ((int) t));
     }
-
-    public ArrayList<GPose> getAllGPoses() {
-        double start = 0,end=1;
-        final double eps = 0.001;
-        ArrayList<GPose> ans = new ArrayList<>();
-        while (start + eps < end) {
-            ans.add(new GPose(
-                    getPose(start).getX(), getPose(start).getY(),getPose(start).getHeading()
-            ));
-            start += eps;
-        }
-        return ans;
-    }
-
 
     private double getDistanceFromPoint(Pose pose, double t) {
         if (t < 0 || t > 1) return Double.POSITIVE_INFINITY;

@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.Modules;
 
-import com.acmerobotics.dashboard.canvas.GPose;
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 
@@ -42,14 +41,6 @@ public class Localizer implements IRobotModule {
 
     public Pose getPoseEstimate() {
         return pose;
-    }
-
-    public ArrayList<GPose> getAllGPoses() {
-        ArrayList<GPose> gPoses = new ArrayList<>();
-        for (Pose pose : poses) {
-            gPoses.add(new GPose(pose.getX(), pose.getY(), pose.getHeading()));
-        }
-        return gPoses;
     }
 
     @Override

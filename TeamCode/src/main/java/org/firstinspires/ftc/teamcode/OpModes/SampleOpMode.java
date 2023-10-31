@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.OpModes;
 import static java.lang.Math.PI;
 
 import com.acmerobotics.dashboard.FtcDashboard;
-import com.acmerobotics.dashboard.canvas.GPose;
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
@@ -88,17 +87,6 @@ public class SampleOpMode extends LinearOpMode {
             localizer.update();
             follower.update();
             drive.update();
-            TelemetryPacket packet = new TelemetryPacket();
-
-            GPose gp = follower.predictiveLocalizer.getPoseEstimate().getGPose();
-            packet.fieldOverlay()
-                    .strokeDesiredPath(lol.getAllGPoses())
-                    .strokeActualPath(localizer.getAllGPoses())
-                    .setStroke("#42f54b")
-                    .strokeRobot(gp);
-            ;
-            dash.sendTelemetryPacket(packet);
-
         }
     }
 }

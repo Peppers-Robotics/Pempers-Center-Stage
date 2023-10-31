@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.Utils;
 
-import com.acmerobotics.dashboard.canvas.GPose;
 import com.acmerobotics.dashboard.config.Config;
 
 @Config
@@ -50,10 +49,6 @@ public class Pose {
 
     public boolean isReached(Pose other){
         return getDistance(other) <= tolerance;
-    }
-
-    public GPose getGPose(){
-        return  new GPose(this.x,this.y,this.heading);
     }
 
     @Override
