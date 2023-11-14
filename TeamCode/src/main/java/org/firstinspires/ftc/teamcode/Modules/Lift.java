@@ -20,14 +20,15 @@ public class Lift implements IStateBasedModule, IRobotModule {
     public final CoolEncoder encoder;
     public static boolean encoderReversed = false;
 
-    public static int groundPos = 0, firstLevel = 140, increment = 69, level = 0, positionThresh = 16, passthroughPosition = 300;
+    public static int groundPos = 0, firstLevel = 160, increment = 69, level = 0, positionThresh = 16, passthroughPosition = 70;
 
-    public static double resetPower = -0.2, velocityThreshold = 0;
+    public static double resetPower = -0.5, velocityThreshold = 0;
 
-    public static PIDCoefficients pid = new PIDCoefficients(0.015,0.24,0.0003);
+    public static PIDCoefficients pid = new PIDCoefficients(0.015,0.18,0.0004);
     public static double ff1 = 0.14, ff2 = 0.0002;
 
-    public static double maxVelocity = 12000, acceleration = 16000, deceleration = 3500;
+    public static double maxVelocity = 12000, acceleration = 10000, deceleration = 3500;
+//    public static double maxVelocity = 20000, acceleration = 12000, deceleration = 12000;
     public AsymmetricMotionProfile profile = new AsymmetricMotionProfile(maxVelocity, acceleration, deceleration);
     public AsymmetricMotionProfile predictiveProfile = new AsymmetricMotionProfile(maxVelocity, acceleration, deceleration);
 
@@ -81,9 +82,11 @@ public class Lift implements IStateBasedModule, IRobotModule {
         State.GOING_DOWN.position = groundPos;
         State.UP.position = groundPos + firstLevel + increment * level;
         State.GOING_UP.position = groundPos + firstLevel + increment * level;
-        State.GOING_PASSTHROUGH.position = (int)passthroughPosition(OuttakeArm.State.VERTICAL.position);
-        State.PASSTHROUGH.position = (int)passthroughPosition(OuttakeArm.State.VERTICAL.position);
-        State.ADAPTABLE_PASSTHROUGH.position = groundPos + (int)passthroughPosition(outtakeArmPosition);
+//        State.GOING_PASSTHROUGH.position = (int)passthroughPosition(OuttakeArm.State.VERTICAL.position);
+        State.GOING_PASSTHROUGH.position = passthroughPosition + groundPos;
+//        State.PASSTHROUGH.position = (int)passthroughPosition(OuttakeArm.State.VERTICAL.position);
+        State.PASSTHROUGH.position = passthroughPosition + groundPos;
+//        State.ADAPTABLE_PASSTHROUGH.position = groundPos + (int)passthroughPosition(outtakeArmPosition);
 //        State.ADAPTABLE_PASSTHROUGH.position = groundPos + (int)passthroughPosition(OuttakeArm.State.VERTICAL.position);
     }
 

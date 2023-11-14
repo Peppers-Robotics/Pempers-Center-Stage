@@ -17,7 +17,7 @@ public class OuttakeArm implements IStateBasedModule, IRobotModule {
     public final CoolServo leftServo, rightServo;
     public static boolean reversedLeftServo = false, reversedRightServo = true;
 
-    public static double intakePosition = 0.28, outtakePosition = 0.86, passthroughPosition = 0.14, verticalPosition = 0.52;
+    public static double intakePosition = 0.94, outtakePosition = 0.13, passthroughPosition = 0.5, verticalPosition = 0.48;
 
     public static double profileMaxVelocity = 15, profileAcceleration = 8, profileDeceleration = 8;
 

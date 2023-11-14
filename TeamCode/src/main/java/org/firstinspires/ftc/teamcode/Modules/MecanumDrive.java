@@ -100,7 +100,7 @@ public class MecanumDrive implements IRobotModule {
         switch (runMode){
             case Vector:
                 powerVector = new Vector(targetVector.getX(), targetVector.getY() * lateralMultiplier, targetVector.getZ());
-                powerVector = Vector.rotateBy(powerVector, localizer.getPoseEstimate().getHeading());
+                powerVector = Vector.rotateBy(powerVector, localizer.getHeading());
                 powerVector = new Vector(powerVector.getX(), powerVector.getY(), targetVector.getZ());
                 break;
             case PID:

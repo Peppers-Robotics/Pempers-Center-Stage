@@ -16,7 +16,7 @@ public class DropDown implements IStateBasedModule, IRobotModule {
     private final CoolServo servo;
     public static boolean reversedServo = false;
 
-    public static double intakePosition = 0.12, upPosition = 0.6;
+    public static double intakePosition = 0.23, upPosition = 0.9;
 
     public static double profileMaxVelocity = 20, profileAcceleration = 20;
 

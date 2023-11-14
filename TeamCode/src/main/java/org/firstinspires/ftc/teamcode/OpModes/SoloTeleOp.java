@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.Modules.Localizer;
 import org.firstinspires.ftc.teamcode.Modules.MecanumDrive;
 import org.firstinspires.ftc.teamcode.Robot.GampadControllers.BuruDriveTrainControl;
+import org.firstinspires.ftc.teamcode.Robot.GampadControllers.BuruGamepadControl;
 import org.firstinspires.ftc.teamcode.Robot.GampadControllers.BuruSebiGamepadControl;
 import org.firstinspires.ftc.teamcode.Robot.Hardware;
 import org.firstinspires.ftc.teamcode.Robot.RobotModules;
@@ -17,8 +18,8 @@ import org.firstinspires.ftc.teamcode.Utils.Pose;
 import java.util.ArrayList;
 import java.util.List;
 
-@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "TeleOp 🐟")
-public class TeleOp extends LinearOpMode {
+@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name = "Solo TeleOp 🐟")
+public class SoloTeleOp extends LinearOpMode {
 
     List<LynxModule> hubs;
 
@@ -30,7 +31,7 @@ public class TeleOp extends LinearOpMode {
     Localizer localizer;
     RobotModules robotModules;
 
-    BuruSebiGamepadControl gamepadControl;
+    BuruGamepadControl gamepadControl;
     BuruDriveTrainControl driveTrainControl;
 
     @Override
@@ -48,7 +49,7 @@ public class TeleOp extends LinearOpMode {
 
         robotModules = new RobotModules(hardware);
 
-        gamepadControl = new BuruSebiGamepadControl(robotModules, gamepad1, gamepad2);
+        gamepadControl = new BuruGamepadControl(robotModules, gamepad1, gamepad2);
         driveTrainControl = new BuruDriveTrainControl(gamepad1, drive);
 
         hubs = hardwareMap.getAll(LynxModule.class);

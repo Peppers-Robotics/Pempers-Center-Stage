@@ -16,7 +16,7 @@ public class RightGripper implements IStateBasedModule, IRobotModule {
     private final CoolServo servo;
     public static boolean reversedServo = true;
 
-    public static double openPosition = 0.83, closedPosition = 0.33;
+    public static double openPosition = 1, closedPosition = 0.4;
 
     public static double profileMaxVelocity = 16, profileAcceleration = 10;
 

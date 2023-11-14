@@ -43,6 +43,7 @@ public class IntakeCalibration extends OpMode {
 
     @Override
     public void loop() {
+        gamepad.update();
         if(gamepad1.dpad_up){
             if(gamepad.x) dropDown.setState(DropDown.State.GOING_UP);
             if(gamepad.a) dropDown.setState(DropDown.State.GOING_INTAKE);
@@ -55,7 +56,6 @@ public class IntakeCalibration extends OpMode {
             if(gamepad.x) leftGripper.setState(LeftGripper.State.CLOSING);
             if(gamepad.a) leftGripper.setState(LeftGripper.State.OPENING);
         }
-        gamepad.update();
         dropDown.update();
         rightGripper.update();
         leftGripper.update();

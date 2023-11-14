@@ -33,9 +33,10 @@ public class RobotModules implements IRobotModule {
 
     public void telemetry(Telemetry telemetry){
         telemetry.addData("Lift level", Lift.level);
-//        telemetry.addData("Lift target position", lift.profile.finalPosition);
+        telemetry.addData("Lift target position", lift.profile.finalPosition);
+        telemetry.addData("Lift current position", lift.encoder.getCurrentPosition());
 //        if(lift.encoder!=null) telemetry.addData("Lift current position", outtake.lift.encoder.getCurrentPosition());
-//        telemetry.addData("Lift current state", lift.getState());
+        telemetry.addData("Lift current state", lift.getState());
 //        telemetry.addData("Adaptable passthrough position", lift.passthroughPosition(Lift.outtakeArmPosition));
 //        if(lift.encoder!=null) telemetry.addData("Lift ground", Lift.groundPos);
         telemetry.addData("Intake state", intake.getState());

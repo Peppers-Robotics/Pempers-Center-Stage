@@ -38,6 +38,9 @@ public class PredictiveLocalizer implements IRobotModule {
 
     private ElapsedTime velocityTimer = new ElapsedTime();
 
+    public double getHeading(){
+        return localizer.getHeading();
+    }
     public void update(){
 
         if(!ENABLED) return;

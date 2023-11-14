@@ -14,6 +14,7 @@ public class CoolIMU {
     private final IMU imu;
     public static double imuAngle = 0;
     public static double imuVelocity = 0;
+    public static double imuOffset = 0;
 
     public CoolIMU(HardwareMap hardwareMap) {
 
@@ -47,7 +48,7 @@ public class CoolIMU {
     }
 
     public double getHeading() {
-        return imuAngle;
+        return imuAngle - imuOffset;
     }
     public double getVelocity() {
         return imuVelocity;

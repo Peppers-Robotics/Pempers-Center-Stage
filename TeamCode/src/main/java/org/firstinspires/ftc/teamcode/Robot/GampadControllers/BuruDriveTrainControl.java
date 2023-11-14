@@ -6,6 +6,7 @@ import org.firstinspires.ftc.teamcode.Modules.MecanumDrive;
 import org.firstinspires.ftc.teamcode.Robot.IRobotModule;
 import org.firstinspires.ftc.teamcode.Utils.StickyGamepad;
 import org.firstinspires.ftc.teamcode.Utils.Vector;
+import org.firstinspires.ftc.teamcode.Wrappers.CoolIMU;
 
 public class BuruDriveTrainControl implements IRobotModule {
 
@@ -21,8 +22,10 @@ public class BuruDriveTrainControl implements IRobotModule {
 
     @Override
     public void update() {
-        if(gamepad.b) drive.overallMultiplier = MecanumDrive.slowMultiplier;
-        else drive.overallMultiplier = MecanumDrive.fastMultiplier;
+//        if(gamepad.b) drive.overallMultiplier = MecanumDrive.slowMultiplier;
+//        else drive.overallMultiplier = MecanumDrive.fastMultiplier;
+
+        if(gamepad.left_bumper && gamepad.right_bumper) CoolIMU.imuOffset = CoolIMU.imuAngle;
 
         drive.setTargetVector(new Vector(-gamepad.left_stick_y, -gamepad.left_stick_x, gamepad.left_trigger - gamepad.right_trigger));
 

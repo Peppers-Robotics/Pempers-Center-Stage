@@ -43,6 +43,10 @@ public class Localizer implements IRobotModule {
         return pose;
     }
 
+    public double getHeading(){
+        return imu.getHeading();
+    }
+
     @Override
     public void update() {
         if(!ENABLED) return;

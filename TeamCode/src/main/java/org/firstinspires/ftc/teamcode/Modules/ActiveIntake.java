@@ -16,10 +16,10 @@ public class ActiveIntake implements IStateBasedModule, IRobotModule {
     private final CoolMotor motor;
     public static boolean reversedMotor = false;
 
-    public static double runningPower = 1;
+    public static double runningPower = 1, reversePower = -0.8;
 
     public enum State{
-        RUNNING(runningPower), IDLE(0), REVERSE(-runningPower);
+        RUNNING(runningPower), IDLE(0), REVERSE(reversePower);
 
         public double power;
         public final State nextState;

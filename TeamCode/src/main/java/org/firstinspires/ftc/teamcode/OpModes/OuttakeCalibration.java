@@ -40,6 +40,7 @@ public class OuttakeCalibration extends OpMode {
 
     @Override
     public void loop() {
+        gamepad.update();
         if(gamepad1.dpad_up){
             if(gamepad.x) lift.setState(Lift.State.GOING_UP);
             if(gamepad.a) lift.setState(Lift.State.GOING_DOWN);
@@ -47,7 +48,7 @@ public class OuttakeCalibration extends OpMode {
         }
         if(gamepad1.dpad_down){
             if(gamepad.a) pitch.setState(Pitch.State.GOING_OUTTAKE);
-            if(gamepad.a) pitch.setState(Pitch.State.GOING_INTAKE);
+            if(gamepad.x) pitch.setState(Pitch.State.GOING_INTAKE);
         }
         if(gamepad1.dpad_left){
             if(gamepad.x) arm.setState(OuttakeArm.State.GOING_INTAKE);
@@ -55,7 +56,6 @@ public class OuttakeCalibration extends OpMode {
             if(gamepad.b) arm.setState(OuttakeArm.State.GOING_PASSTHROUGH);
             if(gamepad.y) arm.setState(OuttakeArm.State.GOING_VERTICAL);
         }
-        gamepad.update();
         lift.update();
         arm.update();
         pitch.update();
